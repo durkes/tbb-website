@@ -1,0 +1,37 @@
+@import "./_incl/bootstrap.min";
+@import "./_incl/custom";
+@import "./_incl/plugins";
+
+//@import "./_incl/theme/main";
+@import "./_incl/theme/vetclinic";
+//@import "./_incl/theme/agility";
+
+.footer-logo,
+.header-logo {
+    height: 5rem;
+    margin: 0;
+
+    filter: drop-shadow(2px 2px 2px RGB(0 0 0 / 0.3));
+    // capital RGB as workaround for https://github.com/sass/node-sass/issues/2251
+}
+
+.footer-logo {
+    margin-top: -1rem;
+}
+
+// prevent header covering content on mobile for anchor links
+@media (max-width: 1200px) {
+    html {
+        scroll-padding-top: 106px;
+    }
+}
+
+#slider {
+    padding-top: 148px;
+}
+
+@media (max-width: 544px) {
+    #slider {
+        padding-top: 106px;
+    }
+}
