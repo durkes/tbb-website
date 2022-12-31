@@ -1,13 +1,13 @@
 # tbb-website
- Website using Node.js build tools, customized from Bootstrap template
+Website using Node.js build tools, customized from Bootstrap template
 
 ### Live website
 https://thebackyardbutler.com/
 
 ## Build reminders
 #### Getting started
-`npm install`
-`npm run build`
+`npm install`\
+`npm run build`\
 `npm run server`
 
 #### During development, use
