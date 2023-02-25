@@ -298,6 +298,6 @@ jQuery(function ($) {
 }); // end jquery function
 
 // close navbar on item click (needed for same page anchor links)
-$('.navbar-nav .close-menu').on('click', function () {
+$('.navbar-nav .page-scroll').on('click', function () {
     $('.navbar-collapse').collapse('hide');
 });
