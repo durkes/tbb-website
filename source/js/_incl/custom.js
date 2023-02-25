@@ -33,7 +33,7 @@ jQuery(function ($) {
 
         //Dropdown on hover
 
-        if ($(window).width() >= 1024) {
+        if ($(window).width() >= 1200) { // nav menu breakpoint
             $('.navbar .dropdown').on({
                 mouseenter: function () {
                     $(this).find('.dropdown-menu').first().stop(true, true).delay(50).slideDown();
