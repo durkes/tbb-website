@@ -20,12 +20,15 @@ jQuery(function ($) {
 
         //Scrolling feature 
 
-        $('.page-scroll a').on('click', function (event) {
+        $('a.page-scroll').on('click', function (event) {
+            event.preventDefault();
+
             var $anchor = $(this);
+            window.history.pushState({}, '', $anchor.attr('href'));
+
             $('html, body').stop().animate({
                 scrollTop: $($anchor.attr('href')).offset().top
             }, 1500, 'easeInOutExpo');
-            event.preventDefault();
         });
 
         //Dropdown on hover
@@ -45,12 +48,12 @@ jQuery(function ($) {
         // Back Top Link
 
         var offset = 200;
-        var duration = 500;
+        var duration = 400;
         $(window).scroll(function () {
             if ($(this).scrollTop() > offset) {
-                $('.back-to-top').fadeIn(400);
+                $('.back-to-top').fadeIn(duration);
             } else {
-                $('.back-to-top').fadeOut(400);
+                $('.back-to-top').fadeOut(duration);
             }
         });
 
