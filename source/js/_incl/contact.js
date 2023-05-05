@@ -1,5 +1,7 @@
 'use strict';
 jQuery(document).ready(function ($) {
+    const formmailUrl = '/vapi/formmail';
+
     $('#formmail_send').on('click', function () {
 
         var proceed = true;
@@ -23,27 +25,18 @@ jQuery(document).ready(function ($) {
         {
             //get input field values data to be sent to server
             var post_data = {
-                'user_name': $('#contact_form input[name=name]').val(),
-                'user_email': $('#contact_form input[name=email]').val(),
+                'name': $('#contact_form input[name=name]').val(),
+                'email': $('#contact_form input[name=email]').val(),
                 'subject': $('#contact_form input[name=subject]').val(),
-                'msg': $('#contact_form textarea[name=message]').val()
+                'message': $('#contact_form textarea[name=message]').val()
             };
 
             //Ajax post data to server
-            $.post('php/sendmail.php', post_data, function (response) {
-                var output;
-                if (response.type === 'error') { //load json data from server and output message 
-                    output = '<br><br><div class="error">' + response.text + '</div>';
-                } else {
-                    output = '<br><br><div class="success">' + response.text + '</div>';
-                    //reset values in all input fields
-                    $('#contact_form input, #contact_form textarea').val('');
-
-                }
-                $('html, body').animate({ scrollTop: $('#contact_form').offset().top - 50 }, 2000);
-
-                $('#contact_results').hide().html(output).slideDown();
-            }, 'json');
+            $.post(formmailUrl, post_data, function (response) {
+                contactResp('Hi ' + post_data.name + '! Thank you for your message. We will contact you right away.', 'success');
+            }).fail(function () {
+                contactResp('There was a problem sending the form. Please try again in a moment.', 'error');
+            });
         }
     });
 
@@ -53,3 +46,18 @@ jQuery(document).ready(function ($) {
         $('#result').slideUp();
     });
 });
+
+function contactResp(text, type) {
+    var output;
+    if (type === 'error') { //load json data from server and output message 
+        output = '<br><br><div class="error">' + text + '</div>';
+    } else {
+        output = '<br><br><div class="success">' + text + '</div>';
+        //reset values in all input fields
+        $('#contact_form input, #contact_form textarea').val('');
+
+    }
+    $('html, body').animate({ scrollTop: $('#contact_form').offset().top - 50 }, 2000);
+
+    $('#contact_results').hide().html(output).slideDown();
+}
