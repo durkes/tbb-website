@@ -1,6 +1,6 @@
 'use strict';
 jQuery(document).ready(function ($) {
-    $('#submit_btn').on('click', function () {
+    $('#formmail_send').on('click', function () {
 
         var proceed = true;
         //simple validation at client's end
