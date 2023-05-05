@@ -33,9 +33,9 @@ jQuery(document).ready(function ($) {
 
             //Ajax post data to server
             $.post(formmailUrl, post_data, function (response) {
-                contactResp('Hi ' + post_data.name + '! Thank you for your message. We will contact you right away.', 'success');
+                contactResp('Thank you for your message. We\'ve received it and we\'ll get back with you ASAP.', 'success');
             }).fail(function () {
-                contactResp('There was a problem sending the form. Please try again in a moment.', 'error');
+                contactResp('There was a problem sending your message. Please try again in a moment.', 'error');
             });
         }
     });
@@ -50,9 +50,9 @@ jQuery(document).ready(function ($) {
 function contactResp(text, type) {
     var output;
     if (type === 'error') { //load json data from server and output message 
-        output = '<br><br><div class="error">' + text + '</div>';
+        output = '<br><br><div class="alert alert-danger">' + text + '</div>';
     } else {
-        output = '<br><br><div class="success">' + text + '</div>';
+        output = '<br><br><div class="alert alert-success">' + text + '</div>';
         //reset values in all input fields
         $('#contact_form input, #contact_form textarea').val('');
 
