@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
 
             //Ajax post data to server
             $.post(formmailUrl, post_data, function (response) {
-                contactResp('Thank you for your message. We\'ve received it and we\'ll get back with you ASAP.', 'success');
+                contactResp('Thank you for your message! We look forward to speaking with you. We\'ll get back with you right away, typically within 24 hours or less.', 'success');
             }).fail(function () {
                 contactResp('There was a problem sending your message. Please try again in a moment.', 'error');
             });
@@ -57,7 +57,7 @@ function contactResp(text, type) {
         $('#contact_form input, #contact_form textarea').val('');
 
     }
-    $('html, body').animate({ scrollTop: $('#contact_form').offset().top - 50 }, 2000);
+    $('html, body').animate({ scrollTop: $('#contact_results').offset().top - 200 }, 2000);
 
     $('#contact_results').hide().html(output).slideDown();
 }
