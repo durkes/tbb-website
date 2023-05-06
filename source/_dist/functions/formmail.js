@@ -1,6 +1,6 @@
 const siteDomain = 'thebackyardbutler.com';
-const toEmail = 'thebackyardbutler1@gmail.com';
-const bccEmail = '7853934442@tmomail.net';
+const toEmail = '';
+const bccEmail = '';
 const fromEmail = 'no-reply@' + siteDomain;
 
 addEventListener('fetch', event => {
