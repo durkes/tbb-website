@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm-run-all copy html js css",
+    "build": "npm-run-all delete copy html js css",
+    "delete": "rimraf public",
     "copy": "Xcopy /E /I /Y source\\_dist public",
     "html-compile": "html-includes --src source/ --dest public/",
     "html-minify": "html-minifier-terser --input-dir public/ --output-dir public/ --file-ext html --collapse-whitespace --remove-comments --minify-js true --minify-css true",
