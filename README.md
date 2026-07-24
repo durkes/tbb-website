@@ -1,8 +1,8 @@
 # tbb-website
 Website using Node.js build tools, customized from Bootstrap template
 
-### Live website
-https://thebackyardbutler.com/
+### Live website (demo)
+https://tbb.pages.dev/
 
 ## Build reminders
 #### Getting started
@@ -13,5 +13,6 @@ https://thebackyardbutler.com/
 #### During development, use
 `npm start`
 
-##### To remove leftover files and minify prior to deploy, *delete public dir* and re-run
-`npm run build`
+##### To remove leftover files and minify prior to deploy
+`npm run build` (automatically deletes `public` directory before building)
+
